@@ -406,7 +406,7 @@ div.rigadestra{
     font-size: 20px !important;
     line-height: 1.4 !important;
     padding: 0 10px !important;
-    margin-top: 0 !important; /* Azzerato completamente per la homepage */
+    margin-top: 0 !important;
     padding-top: 5px !important;
     margin-bottom: 0 !important;
     order: 1 !important;
@@ -421,7 +421,15 @@ div.rigadestra{
   }
 
   body:not(.pagina-interna) h2.title2 { order: 4 !important; } 
-  body:not(.pagina-interna) img { order: 5 !important; }
+  
+  /* Selettore mirato per l'immagine hover nella homepage: annulla i pixel fissi del PC sul telefono */
+  body:not(.pagina-interna) > img:nth-of-type(1) { 
+    order: 5 !important; 
+    transform: none !important; /* Blocca il translate(80px, 50px) sul telefono */
+    margin: 20px auto !important;
+    max-width: 70% !important;
+  }
+
   body:not(.pagina-interna) div.colonnadestra { order: 6 !important; }
   body:not(.pagina-interna) div.colonnasinistra { order: 7 !important; }
   body:not(.pagina-interna) div.rigadestra { order: 8 !important; }
@@ -659,9 +667,10 @@ div.rigadestra{
     padding: 0 25px !important;
     text-align: justify !important;
     margin-top: 5px !important;
+    margin-bottom: 20px !important;
+    line-height: 1.5 !important;
   }
 }
-
 
 
 
